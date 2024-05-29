@@ -1,0 +1,51 @@
+# Function to perform the chosen arithmetic operation
+def calculate(num1, num2, operation):
+    if operation == '1':
+        return num1 + num2
+    elif operation == '2':
+        return num1 - num2
+    elif operation == '3':
+        return num1 * num2
+    elif operation == '4':
+        if num2 == 0:
+            return "Error: Division by zero is not allowed."
+        else:
+            return num1 / num2
+    else:
+        return "Invalid operation choice."
+
+# Main program
+def main():
+    print("Welcome to the Creative Calculator!")
+    while True:
+        try:
+            # Prompting user for input
+            num1 = float(input("\nEnter the first number: "))
+            num2 = float(input("Enter the second number: "))
+
+            # Displaying operation choices
+            print("\nChoose an operation:")
+            print("1. Addition (+)")
+            print("2. Subtraction (-)")
+            print("3. Multiplication (*)")
+            print("4. Division (/)")
+
+            # Getting user's operation choice
+            operation = input("Enter the number corresponding to the operation (1/2/3/4): ")
+
+            # Performing the calculation and displaying the result
+            result = calculate(num1, num2, operation)
+            print(f"\nThe result is: {result}")
+
+            # Asking the user if they want to perform another calculation
+            continue_choice = input("\nWould you like to perform another calculation? (yes/no): ").strip().lower()
+            if continue_choice != 'yes':
+                print("Thank you for using the Creative Calculator. Goodbye!")
+                break
+
+        except ValueError:
+            print("Invalid input. Please enter numeric values for the numbers.")
+
+# Running the main function
+if __name__ == "__main__":
+    main()
